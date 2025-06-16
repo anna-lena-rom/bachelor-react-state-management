@@ -6,10 +6,25 @@ import JotaiThemeToggle from './components/themetoggle/JotaiThemeToggle';
 import { useAtom } from 'jotai';
 import { themeAtom } from './state/JotaiAtom';
 import { lightTheme, darkTheme } from './styles/themes';
+import { LanguageSwitch } from './components/languageswitch/LanguageSwitch';
+import { useLanguage } from './hooks/useLanguage';
+import { translations } from './i18n/translations';
+import { Form } from './components/form/Form';
+import { EntryList } from './components/form/EntryList';
+import { Filter } from './components/form/Filter';
 
+/**
+ * 
+ * @returns export const ThemeLanguageToggle = () => {
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
+ */
 const App: React.FC = () => {
   const [theme] = useAtom(themeAtom);
   const currentTheme = theme === 'light' ? lightTheme : darkTheme;
+  const { language } = useLanguage();
+  const t = translations[language];
 
   return (
     <div
@@ -24,6 +39,16 @@ const App: React.FC = () => {
       <div className="container py-5">
         <h1 className="mb-4">Bootstrap Dark Mode in React</h1>
         <JotaiThemeToggle />
+        <div>
+          <LanguageSwitch />
+          <p>{t.greeting}</p>
+        </div>
+      </div>
+      <div>
+        <h2>{t.form.title}</h2>
+        <Form />
+        <Filter />
+        <EntryList />
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <JotaiCounter />
