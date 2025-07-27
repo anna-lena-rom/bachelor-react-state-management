@@ -1,7 +1,6 @@
 export const translations = {
   en: {
     greeting: "Hello!",
-    toggleTheme: "Toggle Theme",
     form: {
       title: "Person Form",
       name: "First Name",
@@ -11,12 +10,10 @@ export const translations = {
       street: "Street",
       add: "Add Person",
     },
-    filterPlaceholder: "Filter by name or postal code",
     listEmpty: "No entries found.",
   },
   de: {
     greeting: "Hallo!",
-    toggleTheme: "Thema wechseln",
     form: {
       title: "Personenformular",
       name: "Vorname",
@@ -26,7 +23,6 @@ export const translations = {
       street: "Straße",
       add: "Person hinzufügen",
     },
-    filterPlaceholder: "Nach Name oder PLZ filtern",
     listEmpty: "Keine Einträge gefunden.",
   },
 };

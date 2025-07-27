@@ -1,60 +1,60 @@
 import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import JotaiPage from './components/pages/JotaiPage';
+import ReduxPage from './components/pages/ReduxPage';
+import MobXPage from './components/pages/MobXPage';
 import JotaiCounter from './components/counters/JotaiCounter';
 import ReduxCounter from './components/counters/ReduxCounter';
 import MobXCounter from './components/counters/MobxCounter';
-import JotaiThemeToggle from './components/themetoggle/JotaiThemeToggle';
-import { useAtom } from 'jotai';
-import { themeAtom } from './state/JotaiAtom';
-import { lightTheme, darkTheme } from './styles/themes';
-import { LanguageSwitch } from './components/languageswitch/LanguageSwitch';
-import { useLanguage } from './hooks/useLanguage';
-import { translations } from './i18n/translations';
-import { Form } from './components/form/Form';
-import { EntryList } from './components/form/EntryList';
-import { Filter } from './components/form/Filter';
 
 /**
- * 
  * @returns export const ThemeLanguageToggle = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
   const t = translations[language];
- */
+*/
 const App: React.FC = () => {
-  const [theme] = useAtom(themeAtom);
-  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
-  const { language } = useLanguage();
-  const t = translations[language];
 
   return (
-    <div
-      style={{
-        backgroundColor: currentTheme.background,
-        color: currentTheme.text,
-        minHeight: '100vh',
-        padding: '2rem',
-      }}
-    >
-      <h1>{theme.toUpperCase()} Mode</h1>
-      <div className="container py-5">
-        <h1 className="mb-4">Bootstrap Dark Mode in React</h1>
-        <JotaiThemeToggle />
-        <div>
-          <LanguageSwitch />
-          <p>{t.greeting}</p>
-        </div>
-      </div>
-      <div>
-        <h2>{t.form.title}</h2>
-        <Form />
-        <Filter />
-        <EntryList />
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <JotaiCounter />
-        <ReduxCounter />
-        <MobXCounter />
-      </div>
+    <div>
+      <Routes>
+        {/* Home Page */}
+        <Route
+          path="/"
+          element={
+            <>
+              <div>
+                <Link to="/jotai" className="btn btn-primary mt-4">
+                  Go to the Jotai Page
+                </Link>
+              </div>
+              <div>
+                <Link to="/redux" className="btn btn-primary mt-4">
+                  Go to the Redux Page
+                </Link>
+              </div>
+              <div>
+                <Link to="/mobx" className="btn btn-primary mt-4">
+                  Go to the MobX Page
+                </Link>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <JotaiCounter />
+                <ReduxCounter />
+                <MobXCounter />
+                {/*<JotaiPage />*/}
+              </div>
+            </>
+          }
+        />
+
+        {/* Jotai Page */}
+        <Route path="/jotai" element={<JotaiPage />} />
+        {/* Redux Page */}
+        <Route path="/redux" element={<ReduxPage />} />
+        {/* MobX Page */}
+        <Route path="/mobx" element={<MobXPage />} />
+      </Routes>
     </div>
   );
 };

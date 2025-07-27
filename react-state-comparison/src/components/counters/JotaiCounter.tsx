@@ -1,6 +1,7 @@
 import React from 'react';
-import { useAtom } from 'jotai';
-import { jotaiCountAtom } from '../../state/JotaiAtom';
+import { atom, useAtom } from 'jotai';
+
+export const jotaiCountAtom = atom(0);
 
 const JotaiCounter: React.FC = () => {
   const [count, setCount] = useAtom(jotaiCountAtom);
