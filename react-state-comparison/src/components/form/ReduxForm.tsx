@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addPerson } from '../../state/reduxStore';
+import { addPerson, RootState } from '../../state/reduxStore';
 import { useTranslation } from '../../hooks/useTranslation';
+import { translations } from '../../i18n/translations';
+import { useSelector } from 'react-redux';
 
 export const ReduxForm = () => {
   const dispatch = useDispatch();
-  const t = useTranslation();
+  //const t = useTranslation();
+
+  const language = useSelector((state: RootState) => state.language.value);
+  const t = translations[language];
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');

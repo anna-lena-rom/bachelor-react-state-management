@@ -1,5 +1,4 @@
 import React from 'react';
-import { RootState } from '../../state/reduxStore';
 import { translations } from '../../i18n/translations';
 import { languageStore, themeStore } from '../../state/mobxStore';
 import MobXCounter from '../counters/MobxCounter';
@@ -9,9 +8,6 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 import { MobXLanguageSwitch } from '../languageswitch/MobXLanguageSwitch';
 import { MobXEntryList } from '../form/MobXEntryList';
 import { MobXForm } from '../form/MobXForm';
-
-const language = languageStore.value;
-const t = translations[language];
 
 const MobXPage: React.FC = observer(() => {
   return (
@@ -33,20 +29,18 @@ const MobXPage: React.FC = observer(() => {
           <span className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
             <FaSun />
           </span>
-
           <span className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">
             <FaMoon />
           </span>
         </button>
         <div>
           <MobXLanguageSwitch />
-          <p>{translations[languageStore.value].greeting}</p>
+          <p>{languageStore.t.greeting}</p>
         </div>
       </div>
       <div>
         <MobXForm />
-        <MobXEntryList />
-        {/* Add MobXForm and MobXEntryList components here */}
+        <MobXEntryList /> 
       </div>
       <MobXCounter />
     </div>

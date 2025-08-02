@@ -1,11 +1,13 @@
+import { observer } from 'mobx-react-lite';
 import { languageStore } from '../../state/mobxStore';
 
-export const MobXLanguageSwitch = () => {
-    const language = languageStore.value;
+export const MobXLanguageSwitch = observer(() => {
+  const language = languageStore.value;
 
   return (
-    <button style={{ margin: '1rem' }} onClick={() => languageStore.toggleLanguage()}>
+    <button onClick={() => languageStore.toggleLanguage()} style={{ margin: '1rem' }}>
+      {/*translations[nextLanguage].greeting*/}
       {language === 'en' ? 'Deutsch' : 'English'}
     </button>
   );
-};
+});
