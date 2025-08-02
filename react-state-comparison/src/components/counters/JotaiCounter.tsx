@@ -9,8 +9,8 @@ const JotaiCounter: React.FC = () => {
     <div>
       <h2>Jotai Counter</h2>
       <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <button style={{ marginRight: '5px' }} onClick={() => setCount(count + 1)}>+</button>
+      <button style={{ marginLeft: '5px' }} onClick={() => setCount(count - 1)}>-</button>
     </div>
   );
 };

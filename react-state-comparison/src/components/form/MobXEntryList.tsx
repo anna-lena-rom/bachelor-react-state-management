@@ -1,10 +1,8 @@
-import { useTranslation } from '../../hooks/useTranslation';
 import { languageStore, Person, personStore } from '../../state/mobxStore';
 import { observer } from 'mobx-react-lite';
 
 export const MobXEntryList = observer(() => {
   const list = personStore.list;
-  const t = useTranslation();
 
   return (
     <div>

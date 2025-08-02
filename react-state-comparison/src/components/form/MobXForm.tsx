@@ -1,10 +1,7 @@
-import { useForm } from '../../hooks/useForm';
 import { observer } from 'mobx-react-lite';
 import { languageStore, personStore } from '../../state/mobxStore';
-import { useTranslation } from '../../hooks/useTranslation';
 
 export const MobXForm = observer(() => {
-  const t = useTranslation();
 
   return (
     <form

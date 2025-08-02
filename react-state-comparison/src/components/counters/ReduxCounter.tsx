@@ -10,8 +10,8 @@ const ReduxCounter: React.FC = () => {
     <div>
       <h2>Redux Counter</h2>
       <p>{count}</p>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
+      <button style={{ marginRight: '5px' }} onClick={() => dispatch(increment())}>+</button>
+      <button style={{ marginLeft: '5px' }} onClick={() => dispatch(decrement())}>-</button>
     </div>
   );
 };

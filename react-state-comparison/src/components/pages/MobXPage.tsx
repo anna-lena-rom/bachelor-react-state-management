@@ -1,5 +1,4 @@
 import React from 'react';
-import { translations } from '../../i18n/translations';
 import { languageStore, themeStore } from '../../state/mobxStore';
 import MobXCounter from '../counters/MobxCounter';
 import { lightTheme, darkTheme } from '../../styles/themes';

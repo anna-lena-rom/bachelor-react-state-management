@@ -7,8 +7,8 @@ const MobXCounter: React.FC = observer(() => {
     <div>
       <h2>MobX Counter</h2>
       <p>{counterStore.count}</p>
-      <button onClick={() => counterStore.increment()}>+</button>
-      <button onClick={() => counterStore.decrement()}>-</button>
+      <button style={{ marginRight: '5px' }} onClick={() => counterStore.increment()}>+</button>
+      <button style={{ marginLeft: '5px' }}onClick={() => counterStore.decrement()}>-</button>
     </div>
   );
 });
