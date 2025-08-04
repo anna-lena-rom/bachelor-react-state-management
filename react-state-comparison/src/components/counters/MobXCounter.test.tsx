@@ -6,7 +6,7 @@ import { counterStore } from "../../state/mobxStore";
 
 describe('MobXCounter', () => {
     beforeEach(() => {
-        counterStore;
+        counterStore.count = 0;
     });
 
     test('should render MobXCounter component', () => {
@@ -26,6 +26,6 @@ describe('MobXCounter', () => {
         render(<MobXCounter />);
         const decrementButton = screen.getByText('-');
         await userEvent.click(decrementButton);
-        expect(screen.getByText('0')).toBeInTheDocument();
+        expect(screen.getByText('-1')).toBeInTheDocument();
     });
 });

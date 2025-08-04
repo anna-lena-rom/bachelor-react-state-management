@@ -2,10 +2,9 @@ import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils'
 
 type ThemeMode = 'light' | 'dark';
-//export const uiStateAtom = atom<ThemeMode>('system');
 export const themeAtom = atomWithStorage<ThemeMode>('theme', 'light');
 
-type Language = 'en' | 'de'; // oder weitere Sprachen
+type Language = 'en' | 'de';
 export const languageAtom = atomWithStorage<Language>('language', 'en');
 
 export type Person = {
